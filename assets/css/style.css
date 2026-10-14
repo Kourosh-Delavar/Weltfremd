@@ -1,0 +1,144 @@
+/* ==========================================================
+   The Essay Folio — stylesheet
+   Edit the colour / font tokens below to re-skin the site.
+   ========================================================== */
+:root{
+  --paper:#f6f2ea;        /* page background */
+  --paper-deep:#ece6d8;   /* panels, hover */
+  --ink:#1a1816;          /* text */
+  --ink-soft:#5b554d;     /* secondary text */
+  --rule:#cfc7b6;         /* hairlines */
+  --accent:#7a1f1f;       /* links, tags (oxblood) */
+  --footer:#1a1816;
+
+  --serif-display:'Cormorant Garamond','Iowan Old Style',Georgia,serif;
+  --serif-body:'EB Garamond','Iowan Old Style',Georgia,serif;
+  --sans:'Work Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+
+  --measure:40rem;
+  --wide:72rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif-body);font-size:1.2rem;line-height:1.6;
+  text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration-color:var(--rule);text-underline-offset:.2em}
+a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.wrap{max-width:var(--wide);margin:0 auto;padding:0 1.5rem}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- header ---------- */
+.site-header{text-align:center;padding:2.2rem 0 0}
+.brand{display:inline-flex;flex-direction:column;align-items:center;gap:.5rem;text-decoration:none}
+.brand img{width:92px;mix-blend-mode:multiply}
+.brand-name{font-family:var(--serif-display);font-weight:600;font-size:2.4rem;letter-spacing:.04em;line-height:1}
+.brand-tag{font-family:var(--sans);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+.nav{margin-top:1.6rem;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);
+  display:flex;justify-content:center;flex-wrap:wrap;gap:0 2.2rem;padding:.7rem 1rem}
+.nav a{font-family:var(--sans);font-size:.74rem;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;text-decoration:none;padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ---------- headings & shared bits ---------- */
+h1,h2,h3{font-family:var(--serif-display);font-weight:600;line-height:1.1;margin:0}
+.page-title{font-size:3.2rem;text-align:center;margin:3rem 0 2.5rem}
+.kicker,.byline,.meta,.tags a,.btn,.side h3{font-family:var(--sans)}
+.byline{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.byline b{color:var(--ink);font-weight:500}
+.tags{list-style:none;margin:.9rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.tags a{display:inline-block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--rule);padding:.25rem .6rem;color:var(--accent)}
+.tags a:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.meta{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:.9rem}
+.more{font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;white-space:nowrap}
+.more::after{content:" →"}
+
+/* ---------- essay cards ---------- */
+.card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:2.2rem;padding:2.4rem 0;border-top:1px solid var(--rule);align-items:start}
+.card:first-child{border-top:0}
+.card .thumb{display:block;background:var(--paper-deep);aspect-ratio:4/3;overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.card .thumb:hover img{transform:scale(1.03)}
+.card h2{font-size:2.2rem;margin-bottom:.6rem}
+.card h2 a{text-decoration:none}
+.card p{margin:.8rem 0 0}
+.card.featured{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:center}
+.card.featured h2{font-size:2.9rem}
+
+/* ---------- layouts ---------- */
+.with-side{display:grid;grid-template-columns:minmax(0,1fr) 15rem;gap:3.5rem;align-items:start}
+.side{position:sticky;top:1.5rem;padding-top:2.4rem}
+.side h3{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:.6rem;margin-bottom:.8rem}
+.side ul{list-style:none;margin:0;padding:0}
+.side li a{display:flex;justify-content:space-between;font-size:1.05rem;text-decoration:none;padding:.3rem 0;border-bottom:1px dotted var(--rule)}
+.side li a[aria-current="true"]{color:var(--accent);font-style:italic}
+.side small{font-family:var(--sans);font-size:.7rem;color:var(--ink-soft)}
+.filter-note{font-family:var(--sans);font-size:.78rem;color:var(--ink-soft);margin:-1rem 0 1rem}
+.empty{padding:3rem 0;text-align:center;color:var(--ink-soft);font-style:italic}
+
+/* ---------- intro band ---------- */
+.intro{max-width:var(--measure);margin:0 auto 1rem;text-align:center;font-size:1.3rem;font-style:italic;color:var(--ink-soft)}
+.divider{display:flex;align-items:center;gap:1rem;margin:2.5rem auto;max-width:var(--wide);color:var(--ink-soft)}
+.divider::before,.divider::after{content:"";flex:1;border-top:1px solid var(--rule)}
+.divider span{font-family:var(--sans);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase}
+
+/* ---------- single essay ---------- */
+.essay-head{max-width:50rem;margin:3.5rem auto 2rem;text-align:center}
+.essay-head h1{font-size:3.6rem;margin:.6rem 0 1.2rem}
+.essay-head .tags{justify-content:center}
+.essay-hero{max-width:60rem;margin:2rem auto}
+.essay-hero img{width:100%}
+figure{margin:2.4rem 0}
+figcaption{font-family:var(--sans);font-size:.78rem;line-height:1.5;color:var(--ink-soft);margin-top:.6rem}
+.essay-body{max-width:var(--measure);margin:0 auto;padding-bottom:3rem}
+.essay-body>p{margin:0 0 1.2rem;hyphens:auto}
+.essay-body .lede{font-size:1.45rem;line-height:1.5;font-style:italic;color:var(--ink-soft)}
+.essay-body .lede+p::first-letter,.dropcap::first-letter{font-family:var(--serif-display);font-weight:600;
+  float:left;font-size:4.6rem;line-height:.8;padding:.35rem .6rem 0 0;color:var(--accent)}
+.essay-body h2{font-size:2rem;margin:2.6rem 0 1rem}
+.essay-body h3{font-size:1.5rem;margin:2rem 0 .8rem;font-style:italic}
+blockquote{margin:2rem 0;padding:0 0 0 1.4rem;border-left:3px solid var(--accent);font-size:1.3rem;font-style:italic}
+blockquote cite{display:block;margin-top:.5rem;font-family:var(--sans);font-size:.75rem;font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+figure.wide{max-width:60rem;margin-left:50%;transform:translateX(-50%);width:min(60rem,100vw - 3rem)}
+.essay-body video,.essay-body audio{width:100%}
+.footnotes{border-top:1px solid var(--rule);margin-top:3rem;padding-top:1rem;font-size:.95rem;color:var(--ink-soft)}
+.footnotes ol{padding-left:1.2rem}
+sup a{font-family:var(--sans);font-size:.7em;text-decoration:none;color:var(--accent)}
+.author-box{max-width:var(--measure);margin:0 auto 3rem;padding:1.4rem 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);font-size:1rem;color:var(--ink-soft)}
+.pager{max-width:var(--wide);margin:0 auto 3rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;border-top:1px solid var(--rule);padding-top:1.5rem}
+.pager a{text-decoration:none;display:block}
+.pager small{font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);display:block}
+.pager .title{font-family:var(--serif-display);font-size:1.5rem;font-weight:600;line-height:1.15}
+.pager .next{text-align:right}
+
+/* ---------- about / prose page ---------- */
+.prose{max-width:var(--measure);margin:0 auto 4rem}
+.prose p{margin:0 0 1.2rem}
+
+/* ---------- footer ---------- */
+.site-footer{background:var(--footer);color:var(--paper);margin-top:4rem;padding:3.5rem 0 2.5rem;position:relative;overflow:hidden}
+.site-footer::before{content:"";position:absolute;inset:0;background:url("../../resources/images/logo.png") center/220px repeat;opacity:.05;filter:invert(1)}
+.site-footer .wrap{position:relative;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem}
+.site-footer h3{font-family:var(--sans);font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;margin-bottom:1rem;color:#bdb4a2}
+.site-footer ul{list-style:none;margin:0;padding:0;font-size:1.05rem}
+.site-footer li{margin:.3rem 0}
+.site-footer a{text-decoration:none}
+.site-footer a:hover{color:#fff;text-decoration:underline}
+.site-footer p{font-size:1rem;color:#d8d0bf;margin:0 0 1rem;max-width:26rem}
+.copy{position:relative;text-align:center;font-family:var(--sans);font-size:.7rem;letter-spacing:.12em;color:#9d9484;margin-top:2.5rem}
+
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+  html{font-size:94%}
+  .with-side{grid-template-columns:1fr;gap:0}
+  .side{position:static;padding-top:0;margin-bottom:2rem;order:-1}
+  .card,.card.featured{grid-template-columns:1fr;gap:1.2rem}
+  .site-footer .wrap{grid-template-columns:1fr}
+  .essay-head h1{font-size:2.5rem}
+  .page-title{font-size:2.4rem}
+  .nav{gap:0 1.3rem}
+  .pager{grid-template-columns:1fr}.pager .next{text-align:left}
+}
+@media print{.nav,.site-footer,.pager,.side{display:none}body{background:#fff}}
