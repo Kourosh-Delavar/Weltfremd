@@ -40,7 +40,7 @@
   var footer = $("#site-footer");
   if (footer) footer.innerHTML =
       '<div class="wrap"><div><h3>' + SITE.name + '</h3>' +
-      "<p>A small publication of essays on art, philosophy and technology and their relation.</p></div>" +
+      "<p>Weltfremd is a space dedicated to the deliberate exploration of experiences, guided by the principle <em>\"One word by many, many words by one\"</em>.</p></div>" +
       '<div><h3>Read</h3><ul><li><a href="' + root + 'essays/index.html">All essays</a></li>' +
       '<li><a href="' + root + 'about.html">About</a></li></ul></div></div>' +
       '<div class="copy">© ' + SITE.year + " " + esc(SITE.author) + " · Essays and original images © the author unless stated</div>";
